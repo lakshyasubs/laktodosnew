@@ -23,32 +23,20 @@ namespace laktodos.Controllers
             _logger = logger;
         }
 
-        //[HttpGet]
-        //public IEnumerable<WeatherForecast> Get()
-        //{
-        //    var rng = new Random();
-
-        //    var arr =  Enumerable.Range(1, 5).Select(index => new WeatherForecast
-        //    {
-        //        Date = DateTime.Now.AddDays(index),
-        //        TemperatureC = rng.Next(-20, 55),
-        //        Summary = Summaries[rng.Next(Summaries.Length)]
-        //    })
-        //    .ToArray();
-
-        //    return arr;
-        //}
-
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<WeatherForecast> Get()
         {
-            var newarr = new List<string>()
+            var rng = new Random();
+
+            var arr = Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
-                "Hanji Shilpy!!!","Ki haal hai!!!"
+                Date = DateTime.Now.AddDays(index),
+                TemperatureC = rng.Next(-20, 55),
+                Summary = Summaries[rng.Next(Summaries.Length)]
+            })
+            .ToArray();
 
-            };
-
-            return newarr.ToArray();
+            return arr;
         }
     }
 }
